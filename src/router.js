@@ -30,7 +30,7 @@ export default new Router({
     {
       path: '/view',
       name: 'view',
-      component: () => import(/* webpackChunkName: "view" */ './views/TipsView.vue')
+      component: () => import(/* webpackChunkName: "view" */ './views/PostView.vue')
     },
     {
       path: '/registration',
