@@ -1,12 +1,5 @@
 <template>
   <div>
-    <h1>Login</h1>
-    <label><b>Username: </b></label>
-    <input type="text" name="uname" v-model="usernameText">
-
-    <label><b>Password: </b></label>
-    <input type="password" name="psw" v-model="passwordText">
-
     <h1> {{usernameText}} </h1>
     <h1> {{passwordText}} </h1>
     <h1><b>Login</b></h1>

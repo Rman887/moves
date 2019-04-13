@@ -1,7 +1,7 @@
 <template>
   <div>
     <table>
-      <TipItem title = "HI" content = "waternigga" location = "D" is_question="true"/>
+      <TipItem title = "HI" content = "lmao" location = "D" is_question="true"/>
     </table>
   </div>
 </template>
