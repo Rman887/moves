@@ -9,6 +9,10 @@
 
     <h1> {{usernameText}} </h1>
     <h1> {{passwordText}} </h1>
+    <h1><b>Login</b></h1>
+    <input type="text" placeholder="Username" name="uname" v-model="usernameText">
+    <br>
+    <input type="password" placeholder="Password" name="psw" v-model="passwordText">
 
     <button v-on:click="submitLogin">Login</button>
   </div>
@@ -29,10 +33,14 @@ export default {
 
   methods: {
     submitLogin: function (event) {
-      this.usernameText = ''
-      this.passwordText = ''
       console.log('SUBMITTED!')
     }
   }
 }
 </script>
+
+<style>
+  button{
+
+  }
+</style>
