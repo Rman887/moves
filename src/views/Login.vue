@@ -1,10 +1,10 @@
 <template>
   <div>
     <h1>Login</h1>
-    <label><b>Username</b></label>
+    <label><b>Username: </b></label>
     <input type="text" name="uname" v-model="usernameText">
 
-    <label><b>Password</b></label>
+    <label><b>Password: </b></label>
     <input type="password" name="psw" v-model="passwordText">
 
     <h1> {{usernameText}} </h1>
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'login',
   components: {
@@ -30,6 +29,8 @@ export default {
 
   methods: {
     submitLogin: function (event) {
+      this.usernameText = ''
+      this.passwordText = ''
       console.log('SUBMITTED!')
     }
   }
