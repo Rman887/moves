@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import Globals from '@/models/globals.js'
 export default {
   name: 'banner',
   props: {
@@ -13,11 +14,12 @@ export default {
   methods: {
     toggle: function () {
       this.seen = !this.seen
+      Globals.registered = false
     }
   },
   data () {
     return {
-      seen: true
+      seen: false
     }
   }
 }
@@ -27,7 +29,7 @@ export default {
   .Banner{
     background-color: lightsalmon;
     opacity: .9;
-    height: 40px;
+    height: 60px;
     border-radius: 10px;
     cursor: pointer;
     position: absolute;
@@ -36,6 +38,6 @@ export default {
   }
   .Banner h1{
     font-size: 20px;
-    line-height: 40px;
+    line-height: 60px;
   }
 </style>

@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import Banner from '@/components/Banner.vue'
+import Globals from '@/models/globals.js'
+import axios from 'axios'
 export default {
   name: 'registration',
   components: {
-    Banner
   },
 
   data () {
@@ -28,15 +28,32 @@ export default {
       usernameText: '',
       emailText: '',
       passwordText: '',
-      confPasswordText: ''
+      confPasswordText: '',
+      response: ''
     }
   },
 
   methods: {
     submitRegistration: function (elements) {
-      console.log('REGISTERING!')
-      localStorage.registered = true
-      this.$router.push('login')
+      var submission = {
+        'username': this.usernameText,
+        'email': this.emailText,
+        'password': this.passwordText,
+        'confirm_password': this.confPasswordText
+      }
+      axios
+        .post('http://35.243.232.143/user/register/', {
+          data: JSON.stringify(submission),
+          crossDomain: true
+        })
+        .then(response => {
+          this.response = response.data
+          Globals.registered = true
+          this.$router.push('login')
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 }

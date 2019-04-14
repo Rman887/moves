@@ -10,7 +10,17 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+import Globals from '@/models/globals.js'
+export default {
+  name: 'app',
+  computed: {
+    loggedIn: function () {
+      return Globals.loggedIn
+    }
+  }
+}
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -32,3 +42,5 @@
   color: #42b983;
 }
 </style>
+
+

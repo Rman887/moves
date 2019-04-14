@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Banner id="SuccessfulRegistration" content="TEST BANNER"></Banner>
+    <Banner v-if="registered" content="Account successfully created!"></Banner>
     <h1><b>Login</b></h1>
     <form v-on:submit.prevent="submitLogin">
       <input type="text" placeholder="Username" name="uname" v-model="usernameText">
@@ -14,6 +14,7 @@
 
 <script>
 import Banner from '@/components/Banner.vue'
+import Globals from '@/models/globals.js'
 import axios from 'axios'
 export default {
   name: 'login',
@@ -40,13 +41,20 @@ export default {
           data: JSON.stringify(submission),
           crossDomain: true
         }).then(response => {
-          this.response = response.data
-          localStorage.token = response.token
-          this.$router.push('login')
+          this.response = response
+          localStorage.setItem('token', response.data.token)
+          localStorage.user = this.usernameText
+          Globals.loggedIn = true
+          this.$router.push('/')
         })
         .catch(e => {
           console.log(e)
         })
+    }
+  },
+  computed: {
+    registered: function () {
+      return Globals.registered
     }
   }
 }
