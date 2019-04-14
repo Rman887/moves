@@ -10,16 +10,17 @@
       <br>
       <input type="password" placeholder="Confirm Password" name="confpsw" v-model="confPasswordText">
       <br>
-      <input type="submit" text="Register">
+      <input type="submit" value="Register">
     </form>
   </div>
 </template>
 
 <script>
-
+import Banner from '@/components/Banner.vue'
 export default {
   name: 'registration',
   components: {
+    Banner
   },
 
   data () {
@@ -32,13 +33,15 @@ export default {
   },
 
   methods: {
-    submitRegistration: function (event) {
+    submitRegistration: function (elements) {
       console.log('REGISTERING!')
+      localStorage.registered = true
+      this.$router.push('login')
     }
   }
 }
 </script>
-<style>
+<style scoped>
   h1 {
     margin-bottom: 20px;
   }
@@ -62,11 +65,11 @@ export default {
     appearance: none;
     cursor: pointer;
     transition: 0.2s ease;
-    background-color: grey;
+    background-color: lightsalmon;
     color: white;
   }
 
   input[type='submit']:hover {
-    background-color: red;
+    background-color: darksalmon;
   }
 </style>

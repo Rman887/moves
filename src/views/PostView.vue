@@ -21,11 +21,11 @@ export default {
   },
 
   data () {
-      return {
-        posts: [new Post(1, "Title", "content", true, "123 street"),
-                new Post(2, "kjasdhf", "dick", false, "ayy lmao")
-        ]
-      }
+    return {
+      posts: [new Post(1, "Title", "content", true, "123 street"),
+        new Post(2, "kjasdhf", "dick", false, "ayy lmao")
+      ]
+    }
   }
 }
 </script>
