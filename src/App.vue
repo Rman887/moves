@@ -6,6 +6,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/login">Login</router-link> |
       <router-link to="/registration">Register</router-link>
+      <div v-if="loggedIn">Log out</div>
     </div>
     <router-view/>
   </div>
@@ -16,6 +17,11 @@ export default {
   name: 'app',
   computed: {
     loggedIn: function () {
+      if (localStorage.token !== null || localStorage !== undefined) {
+        Globals.loggedIn = true
+      } else {
+        Globals.loggedIn = false
+      }
       return Globals.loggedIn
     }
   }
